@@ -43,11 +43,10 @@ def get_subject(text):
 
     return words[0][:32] + '...'  # first 32 characters"""
 
-    words = text
-    if len(words) <= 100:
-        subject = words
+    if len(text) <= 100:
+        subject = text
     else:
-        subject = words
+        subject = text[:100]  # Берем первые 100 символов для темы
 
     return subject
 
