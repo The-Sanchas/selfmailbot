@@ -28,7 +28,7 @@ def capfirst(x):
 
 
 def get_subject(text):
-    """Generate subject based on message text"""
+    """Generate subject based on message text
     words = [word.lower() for word in re.split('\s+', text)]
     words[0] = capfirst(words[0])
 
@@ -41,8 +41,15 @@ def get_subject(text):
     if len(words[0]) < 32:
         return words[0][:32]
 
-    return words[0][:32] + '...'  # first 32 characters
+    return words[0][:32] + '...'  # first 32 characters"""
 
+    words = text
+    if len(words) <= 100:
+        subject = words
+    else:
+        subject = words
+
+    return subject
 
 def get_file(file: telegram.File) -> BytesIO:
     attachment = BytesIO()
